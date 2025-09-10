@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: 'Sagnik Pal - Portfolio',
   description: 'AI Developer & Creative Technologist',
   generator: 'Next.js',
+  icons: {
+    icon: [
+      { url: '/portfolio-logo.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/portfolio-logo.svg',
+    apple: '/portfolio-logo.svg',
+  },
 }
 
 export default function RootLayout({
