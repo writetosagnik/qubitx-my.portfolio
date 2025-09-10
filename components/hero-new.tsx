@@ -6,11 +6,9 @@ import { ArrowUpRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
-  const [currentProject, setCurrentProject] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [animationOffset, setAnimationOffset] = useState({ x: 0, y: 0 })
-  const totalProjects = 6
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300)
@@ -222,18 +220,6 @@ export function Hero() {
       </div>
 
       {/* Project Counter */}
-      <div
-        className={`absolute bottom-24 left-6 md:left-12 transition-all duration-1000 delay-1200 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
-        <div className="text-center">
-          <div className="text-2xl font-light text-foreground mb-2">06</div>
-          <div className="text-xs text-muted-foreground tracking-[0.2em]">PROJECTS</div>
-          <div className="w-8 h-px bg-foreground/30 mx-auto mt-2"></div>
-        </div>
-      </div>
-
       {/* Contact Button */}
       <div
         className={`absolute bottom-24 right-6 md:right-12 transition-all duration-1500 delay-1400 ${

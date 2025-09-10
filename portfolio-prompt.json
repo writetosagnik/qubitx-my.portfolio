@@ -1,0 +1,290 @@
+{
+  "portfolio_website_prompt": {
+    "project_info": {
+      "name": "Sagnik's Portfolio",
+      "version": "1.0.0",
+      "description": "Modern developer portfolio showcasing AI projects, web applications, and creative technology solutions",
+      "owner": "Sagnik (writetosagnik)",
+      "repository": "qubitx-my.portfolio",
+      "branch": "v1.1",
+      "tech_stack": {
+        "framework": "Next.js 14.2.16",
+        "language": "TypeScript",
+        "styling": "Tailwind CSS",
+        "ui_components": "Shadcn/ui (Radix UI)",
+        "icons": "Lucide React",
+        "theme": "next-themes (dark/light mode)",
+        "animations": "CSS transitions, glassmorphism effects"
+      }
+    },
+    "project_structure": {
+      "root_files": [
+        "package.json",
+        "next.config.mjs",
+        "tsconfig.json",
+        "tailwind.config.ts",
+        "postcss.config.mjs",
+        "components.json"
+      ],
+      "directories": {
+        "app/": {
+          "description": "Next.js App Router",
+          "files": ["layout.tsx", "page.tsx", "globals.css"]
+        },
+        "components/": {
+          "description": "React components",
+          "files": [
+            "header.tsx",
+            "hero-new.tsx",
+            "projects.tsx", 
+            "blog.tsx",
+            "contact-new.tsx",
+            "theme-provider.tsx"
+          ],
+          "ui/": "Shadcn/ui component library (40+ components)"
+        },
+        "lib/": {
+          "description": "Utility functions",
+          "files": ["utils.ts"]
+        },
+        "hooks/": {
+          "description": "Custom React hooks",
+          "files": ["use-mobile.ts", "use-toast.ts"]
+        },
+        "public/": {
+          "description": "Static assets",
+          "files": ["placeholder images", "logos", "sagnik-photo.jpg"]
+        },
+        "styles/": {
+          "description": "Global styles",
+          "files": ["globals.css"]
+        }
+      }
+    },
+    "website_sections": [
+      {
+        "section": "Header",
+        "component": "header.tsx",
+        "description": "Navigation bar with theme toggle",
+        "features": ["Responsive navigation", "Dark/light mode toggle", "Smooth scrolling links"]
+      },
+      {
+        "section": "Hero",
+        "component": "hero-new.tsx", 
+        "description": "Landing section with animated background and introduction",
+        "content": {
+          "name": "I'm Sagnik",
+          "title": "creative developer",
+          "description": "Turning ideas into interactive experiences through code, design, and a touch of magic.",
+          "cta_text": "View My Work",
+          "features": [
+            "Automatic background animations",
+            "Mouse-tracking effects", 
+            "Glassmorphism design",
+            "Photo placeholder for sagnik-photo.jpg",
+            "Project counter animation (6 total projects)"
+          ]
+        }
+      },
+      {
+        "section": "Projects",
+        "component": "projects.tsx",
+        "description": "Carousel showcasing real GitHub projects",
+        "projects": [
+          {
+            "id": 1,
+            "title": "threat detection system",
+            "agency": "AI. SECURITY", 
+            "year": "2024",
+            "description": "State-of-the-art AI-powered threat detection system for real-time firearm identification using YOLOv8. Features 84.8% mAP50 accuracy with CPU optimization.",
+            "tags": ["Python", "YOLOv8", "OpenCV"],
+            "github": "https://github.com/writetosagnik/threat-detection-system"
+          },
+          {
+            "id": 2,
+            "title": "linkr",
+            "agency": "WEB. UTILITY",
+            "year": "2024", 
+            "description": "Modern QR code generator with React frontend and FastAPI backend. Supports multiple formats (PNG, JPG, PDF, SVG) with customizable colors and dark theme.",
+            "tags": ["React", "FastAPI", "Python"],
+            "github": "https://github.com/writetosagnik/linkr"
+          },
+          {
+            "id": 3,
+            "title": "ContentCrafter",
+            "agency": "AI. SOCIAL",
+            "year": "2024",
+            "description": "AI-powered social media content creation tool integrated with Google's Gemini AI. Features intelligent chatbot and multi-platform content generation.",
+            "tags": ["React", "TypeScript", "Gemini AI"],
+            "github": "https://github.com/writetosagnik/ContentCrafter"
+          },
+          {
+            "id": 4,
+            "title": "GenZChats", 
+            "agency": "MOBILE. AI",
+            "year": "2024",
+            "description": "Android chatbot app built with Kotlin and Gemini AI, designed as a relatable Gen Z college student providing academic and personal support.",
+            "tags": ["Kotlin", "Android", "Gemini AI"],
+            "github": "https://github.com/writetosagnik/GenZChats"
+          }
+        ],
+        "features": [
+          "Auto-advancing carousel (4 seconds per project)",
+          "Manual navigation with previous/next buttons",
+          "Progress indicators with dots",
+          "External GitHub links",
+          "Pause on hover functionality",
+          "Smooth transitions and animations",
+          "Responsive design"
+        ]
+      },
+      {
+        "section": "Blog",
+        "component": "blog.tsx",
+        "description": "Blog section with empty state handling",
+        "current_state": "Empty - Coming Soon",
+        "content": {
+          "title": "coming soon",
+          "description": "I'm currently crafting insightful articles about AI development, creative technology, and the intersection of code and design. Get notified when I publish my first post!",
+          "cta_text": "Get Notified",
+          "email_subject": "Blog Updates from Sagnik's Portfolio"
+        },
+        "features": [
+          "Conditional rendering for empty/populated states",
+          "Professional 'Coming Soon' message",
+          "Email notification button (mailto link)",
+          "Ready for future blog posts with TypeScript structure",
+          "Template structure commented in code",
+          "Navigation controls hidden when empty",
+          "Smooth animations and glassmorphism effects"
+        ],
+        "future_blog_structure": {
+          "type": "BlogPost",
+          "fields": ["id", "title", "excerpt", "date", "readTime", "category"]
+        }
+      },
+      {
+        "section": "Contact",
+        "component": "contact-new.tsx",
+        "description": "Contact form and information",
+        "content": {
+          "title": "let's collaborate",
+          "description": "Ready to bring your ideas to life? Let's discuss your next project and create something extraordinary together.",
+          "contact_info": {
+            "email": "writeto.uxgnik@gmail.com",
+            "location": "Bhubaneswar, India"
+          },
+          "form_fields": [
+            {"name": "Name", "type": "text", "required": true},
+            {"name": "Email", "type": "email", "required": true},
+            {"name": "Message", "type": "textarea", "required": true}
+          ],
+          "form_action": "Console log (ready for email integration)"
+        },
+        "features": [
+          "Clean contact form with validation",
+          "Professional contact information display", 
+          "Glassmorphism design consistency",
+          "Ready for email service integration",
+          "Responsive grid layout"
+        ]
+      }
+    ],
+    "design_system": {
+      "theme": {
+        "mode": "Dark/Light toggle",
+        "primary_colors": "CSS variables for theming",
+        "typography": "Geist font family",
+        "effects": "Glassmorphism, blur effects, subtle animations"
+      },
+      "components": {
+        "ui_library": "Shadcn/ui",
+        "component_count": "40+ pre-built components",
+        "styling": "Tailwind CSS with custom utilities",
+        "responsive": "Mobile-first approach"
+      },
+      "animations": {
+        "type": "CSS transitions and transforms",
+        "features": [
+          "Auto-advancing carousels", 
+          "Mouse tracking effects",
+          "Smooth section transitions",
+          "Hover state animations",
+          "Background element movements",
+          "Loading and state changes"
+        ]
+      }
+    },
+    "content_strategy": {
+      "personal_branding": {
+        "name": "Sagnik",
+        "title": "Creative Developer",
+        "focus": "AI development, web applications, creative technology",
+        "personality": "Professional yet approachable, innovation-focused"
+      },
+      "project_themes": [
+        "AI & Machine Learning",
+        "Web Development", 
+        "Mobile Applications",
+        "Creative Technology",
+        "Security Solutions",
+        "Social Media Tools"
+      ],
+      "content_tone": "Professional, modern, tech-savvy, creative"
+    },
+    "technical_implementation": {
+      "responsive_design": "Mobile-first, works on all screen sizes",
+      "performance": "Optimized with Next.js App Router",
+      "accessibility": "Semantic HTML, proper ARIA labels",
+      "seo": "Meta tags, structured data ready",
+      "deployment": "Vercel-ready with analytics integration"
+    },
+    "development_commands": {
+      "install": "pnpm install",
+      "dev": "pnpm run dev",
+      "build": "pnpm run build", 
+      "start": "pnpm start",
+      "lint": "pnpm run lint"
+    },
+    "customization_guide": {
+      "adding_projects": "Update projects array in components/projects.tsx",
+      "adding_blogs": "Uncomment template in components/blog.tsx blogPosts array",
+      "updating_contact": "Modify content in components/contact-new.tsx",
+      "changing_hero": "Update personal info in components/hero-new.tsx",
+      "adding_photo": "Place sagnik-photo.jpg in public/ directory",
+      "theme_changes": "Modify CSS variables in globals.css",
+      "email_integration": "Add EmailJS or other service to contact form"
+    }
+  },
+  "ai_prompt_instructions": {
+    "context": "This is a modern developer portfolio website built with Next.js, TypeScript, and Tailwind CSS. The site showcases AI projects, web applications, and demonstrates modern web development practices.",
+    "key_features": [
+      "Fully responsive design with dark/light mode",
+      "Auto-advancing project carousel with real GitHub projects", 
+      "Empty blog state with professional 'coming soon' handling",
+      "Glassmorphism design effects throughout",
+      "Smooth animations and transitions",
+      "Contact form ready for email integration",
+      "40+ Shadcn/ui components available",
+      "TypeScript for type safety",
+      "Mobile-first responsive approach"
+    ],
+    "customization_points": [
+      "Projects can be updated in projects.tsx",
+      "Blog posts can be added by uncommenting template structure",
+      "Contact form can integrate with email services", 
+      "Theme colors customizable via CSS variables",
+      "Personal photo can be added to public/sagnik-photo.jpg",
+      "All content is easily modifiable in respective components"
+    ],
+    "technical_notes": [
+      "Uses Next.js App Router (latest)",
+      "Components use 'use client' directive where needed",
+      "Responsive breakpoints: sm, md, lg, xl",
+      "Icons from Lucide React",
+      "Animations via CSS transitions",
+      "No external APIs currently integrated",
+      "Ready for deployment on Vercel"
+    ]
+  }
+}
