@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ArrowUpRight, Mail, MapPin, CheckCircle, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -15,32 +15,86 @@ export function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  // Initialize EmailJS
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    setSubmitStatus('idle')
+    setErrorMessage('')
+    
+    // Enhanced validation
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your name.')
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 3000)
+      return
+    }
+    
+    if (!formData.email.trim()) {
+      setErrorMessage('Please enter your email address.')
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 3000)
+      return
+    }
+    
+    if (!validateEmail(formData.email.trim())) {
+      setErrorMessage('Please enter a valid email address.')
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 3000)
+      return
+    }
+    
+    if (!formData.message.trim()) {
+      setErrorMessage('Please enter your message.')
+      setSubmitStatus('error')
+      setTimeout(() => setSubmitStatus('idle'), 3000)
+      return
+    }
+
+    if (formData.message.trim().length < 10) {
+      setErrorMessage('Please enter a message with at least 10 characters.')
       setSubmitStatus('error')
       setTimeout(() => setSubmitStatus('idle'), 3000)
       return
     }
 
     setIsSubmitting(true)
-    setSubmitStatus('idle')
 
     try {
+      // Check if environment variables are available
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration is missing')
+      }
+
       // EmailJS send function
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        serviceId,
+        templateId,
         {
-          from_name: formData.name,
-          reply_to: formData.email,
-          message: formData.message,
+          from_name: formData.name.trim(),
+          reply_to: formData.email.trim(),
+          message: formData.message.trim(),
           sent_time: new Date().toLocaleString(),
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        publicKey
       )
 
       console.log('Email sent successfully:', result.text)
@@ -58,8 +112,9 @@ export function Contact() {
       
     } catch (error) {
       console.error('Email send failed:', error)
+      setErrorMessage('Failed to send message. Please try again or contact me directly.')
       setSubmitStatus('error')
-      setTimeout(() => setSubmitStatus('idle'), 3000)
+      setTimeout(() => setSubmitStatus('idle'), 5000)
     } finally {
       setIsSubmitting(false)
     }
@@ -116,7 +171,7 @@ export function Contact() {
               {submitStatus === 'error' && (
                 <div className="flex items-center gap-2 p-3 bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 rounded-lg border border-red-200 dark:border-red-800">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-sm">Please fill in all fields correctly.</span>
+                  <span className="text-sm">{errorMessage || 'Please fill in all fields correctly.'}</span>
                 </div>
               )}
 
