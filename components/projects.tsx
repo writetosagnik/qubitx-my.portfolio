@@ -133,7 +133,7 @@ export function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative min-h-screen flex items-center justify-center px-6 md:px-12 py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-20 overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -183,23 +183,23 @@ export function Projects() {
       <button
         onClick={prevProject}
         disabled={isTransitioning}
-        className={`absolute left-8 top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full border border-foreground/20 hover:border-foreground/40 bg-background/10 backdrop-blur-md flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-xl group disabled:opacity-50 ${
+        className={`absolute left-2 sm:left-4 md:left-8 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-foreground/20 hover:border-foreground/40 bg-background/80 backdrop-blur-md flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-xl group disabled:opacity-50 ${
           isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
         }`}
         aria-label="Previous project"
       >
-        <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform duration-300" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform duration-300" />
       </button>
 
       <button
         onClick={nextProject}
         disabled={isTransitioning}
-        className={`absolute right-8 top-1/2 transform -translate-y-1/2 w-14 h-14 rounded-full border border-foreground/20 hover:border-foreground/40 bg-background/10 backdrop-blur-md flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-xl group disabled:opacity-50 ${
+        className={`absolute right-2 sm:right-4 md:right-8 top-1/2 transform -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border border-foreground/20 hover:border-foreground/40 bg-background/80 backdrop-blur-md flex items-center justify-center transition-all duration-500 hover:scale-110 hover:shadow-xl group disabled:opacity-50 ${
           isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
         }`}
         aria-label="Next project"
       >
-        <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform duration-300" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform duration-300" />
       </button>
 
       {/* Main Content */}
@@ -210,31 +210,31 @@ export function Projects() {
           
           {/* Project Title */}
           <div
-            className={`text-center mb-12 transition-all duration-800 delay-400 ${
+            className={`text-center mb-8 sm:mb-12 transition-all duration-800 delay-400 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
             }`}
           >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-extralight italic leading-none mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extralight italic leading-none mb-4 sm:mb-6 px-4">
               <span className="text-foreground">
                 {project.title}
               </span>
             </h2>
             
-            <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground tracking-[0.15em] font-light">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-muted-foreground tracking-[0.15em] font-light">
               <span>{project.agency}</span>
             </div>
           </div>
 
           {/* Project Details Card */}
           <div
-            className={`max-w-4xl mx-auto transition-all duration-1000 delay-600 ${
+            className={`max-w-4xl mx-auto px-4 sm:px-6 transition-all duration-1000 delay-600 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             <div className="relative group">
               <div className="absolute -inset-px bg-gradient-to-r from-foreground/10 via-foreground/5 to-foreground/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
               
-              <div className="relative bg-background/20 backdrop-blur-md border border-foreground/10 rounded-2xl p-8 md:p-12 hover:border-foreground/20 transition-all duration-500">
+              <div className="relative bg-background/20 backdrop-blur-md border border-foreground/10 rounded-2xl p-6 sm:p-8 md:p-12 hover:border-foreground/20 transition-all duration-500">
                 
                 {/* Description */}
                 <div className="text-center mb-8">

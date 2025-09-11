@@ -119,7 +119,7 @@ export function Blog() {
     <section
       ref={sectionRef}
       id="blog"
-      className="relative min-h-screen flex items-center justify-center px-6 md:px-12 py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-16 sm:py-20 overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -141,13 +141,13 @@ export function Blog() {
 
       {/* Section Label */}
       <div
-        className={`absolute top-16 right-6 md:right-12 transition-all duration-1000 delay-200 ${
+        className={`absolute top-12 sm:top-16 right-4 sm:right-6 md:right-12 transition-all duration-1000 delay-200 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
         <div className="text-right">
-          <span className="text-sm text-muted-foreground tracking-[0.2em] font-light">THOUGHTS</span>
-          <div className="w-20 h-px bg-gradient-to-l from-foreground/50 to-transparent mt-1"></div>
+          <span className="text-xs sm:text-sm text-muted-foreground tracking-[0.2em] font-light">THOUGHTS</span>
+          <div className="w-16 sm:w-20 h-px bg-gradient-to-l from-foreground/50 to-transparent mt-1"></div>
         </div>
       </div>
 
@@ -270,22 +270,22 @@ export function Blog() {
         </div>
         ) : (
           /* No Blogs State */
-          <div className={`text-center transition-all duration-800 delay-400 ${
+          <div className={`text-center px-4 sm:px-6 transition-all duration-800 delay-400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
           }`}>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-extralight italic leading-none mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extralight italic leading-none mb-4 sm:mb-6">
               <span className="text-foreground">
                 coming soon
               </span>
             </h2>
             
-            <div className="max-w-2xl mx-auto mb-12">
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed font-light">
+            <div className="max-w-2xl mx-auto mb-8 sm:mb-12">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed font-light">
                 I'm working on some exciting blog posts about AI development, creative technology, and my journey in building innovative solutions. Stay tuned for insights, tutorials, and project deep-dives.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <div className="relative group/btn">
                 <div className="absolute -inset-1 bg-gradient-to-r from-foreground/10 to-foreground/5 rounded-full opacity-0 group-hover/btn:opacity-100 transition-all duration-500 blur-sm"></div>
                 <Button
