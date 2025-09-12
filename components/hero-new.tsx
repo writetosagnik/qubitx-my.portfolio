@@ -206,7 +206,7 @@ export function Hero() {
               asChild
             >
               <a
-                href="https://drive.google.com/file/d/1bzfLnoRGszbuzGsBx1vX5HnDmt8TOcr2/view?usp=sharing"
+                href="https://drive.google.com/file/d/1BoVtwvqrPiA335PnR76xTPJjz-UEutNO/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
